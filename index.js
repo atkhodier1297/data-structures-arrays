@@ -139,3 +139,15 @@ function reverse2(str) {
 simpleAnswer = reverse2('Hi my name is Adam')
 
 console.log(simpleAnswer)
+
+// JS one liner with
+
+const reverse3 = str => str.split('').reverse().join('')
+
+// don't even need the split method with spread operator
+
+const reverse4 = str => [...str].reverse().join('')
+
+oneLiner = reverse4('Hi my name is Adam')
+
+console.log(oneLiner)
