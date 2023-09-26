@@ -93,12 +93,49 @@ const newArray = new MyArray();
 // console.log(newArray.get(0))
 // undefined nothing in the object
 
-newArray.push("hi");
-newArray.push("you");
-newArray.push("!");
+// newArray.push("hi");
+// newArray.push("you");
+// newArray.push("!");
 
 // newArray.pop();
 
-newArray.delete(1);
+// newArray.delete(1);
 
-console.log(newArray);
+// console.log(newArray);
+
+// In interviews treat string questions as arrays
+// Strings are just an array of characters
+
+// Reverse a string
+// 'Hi my name is Adam' should be
+// 'madA si eman ym iH'
+
+function reverse(str) {
+  // check input
+  if (!str || str.length < 2 || typeof str !== "string") {
+    return "wrong input";
+  }
+
+  const backwards = [];
+  const totalItems = str.length - 1
+  for (let i = totalItems; i >= 0; i--) {
+    // decrementing from the end of the string
+    backwards.push(str[i])
+  }
+  // console.log(backwards)
+
+  // return backwards.toString()
+  return backwards.join('')
+}
+
+reverse('Hi my name is Adam')
+
+// JS simple method
+
+function reverse2(str) {
+  return str.split('').reverse().join('')
+}
+
+simpleAnswer = reverse2('Hi my name is Adam')
+
+console.log(simpleAnswer)
