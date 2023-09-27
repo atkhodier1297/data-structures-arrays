@@ -117,57 +117,73 @@ function reverse(str) {
   }
 
   const backwards = [];
-  const totalItems = str.length - 1
+  const totalItems = str.length - 1;
   for (let i = totalItems; i >= 0; i--) {
     // decrementing from the end of the string
-    backwards.push(str[i])
+    backwards.push(str[i]);
   }
   // console.log(backwards)
 
   // return backwards.toString()
-  return backwards.join('')
+  return backwards.join("");
 }
 
-reverse('Hi my name is Adam')
+reverse("Hi my name is Adam");
 
 // JS simple method
 
 function reverse2(str) {
-  return str.split('').reverse().join('')
+  return str.split("").reverse().join("");
 }
 
-simpleAnswer = reverse2('Hi my name is Adam')
+simpleAnswer = reverse2("Hi my name is Adam");
 
 // console.log(simpleAnswer)
 
 // JS one liner with
 
-const reverse3 = str => str.split('').reverse().join('')
+const reverse3 = (str) => str.split("").reverse().join("");
 
 // don't even need the split method with spread operator
 
-const reverse4 = str => [...str].reverse().join('')
+const reverse4 = (str) => [...str].reverse().join("");
 
-oneLiner = reverse4('Hi my name is Adam')
+oneLiner = reverse4("Hi my name is Adam");
 
 // console.log(oneLiner)
 
 // Merge Array Challenge
 
-function mergeArrays(arr1, arr2) {
-  const mergedArray = [...arr1]; // Create a copy of arr1
-  for (const item of arr2) {
-    if (!mergedArray.includes(item)) {
-      // Check if the item is not already in the merged array
-      mergedArray.push(item); // Add the item to the merged array
+//Brute Force
+
+function mergeArrays(array1, array2) {
+  const mergedArray = [];
+  let array1Item = array1[0];
+  let array2Item = array2[0];
+  let i = 1;
+  let j = 1;
+
+  // Check inputs
+  if (array1.length === 0) {
+    return array2;
+  }
+  if (array2.length === 0) {
+    return array2;
+  }
+
+  while (array1Item || array2Item) {
+    if (!array2Item || array1Item < array2Item) {
+      mergedArray.push(array1Item);
+      array1Item = array1[i];
+      i++;
+    } else {
+      mergedArray.push(array2Item)
+      array2Item = array2[j];
+      j++;
     }
   }
+
   return mergedArray;
 }
 
-const array1 = [1, 2, 3];
-const array2 = [3, 4, 5];
-const mergedResult = mergeArrays(array1, array2);
-console.log(mergedResult); // Output: [1, 2, 3, 4, 5]
-
-// O(a * b)
+console.log(mergeArrays([1, 2, 3, 4], [5, 6, 7, 8]))
