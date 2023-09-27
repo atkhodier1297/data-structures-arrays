@@ -138,7 +138,7 @@ function reverse2(str) {
 
 simpleAnswer = reverse2('Hi my name is Adam')
 
-console.log(simpleAnswer)
+// console.log(simpleAnswer)
 
 // JS one liner with
 
@@ -150,4 +150,24 @@ const reverse4 = str => [...str].reverse().join('')
 
 oneLiner = reverse4('Hi my name is Adam')
 
-console.log(oneLiner)
+// console.log(oneLiner)
+
+// Merge Array Challenge
+
+function mergeArrays(arr1, arr2) {
+  const mergedArray = [...arr1]; // Create a copy of arr1
+  for (const item of arr2) {
+    if (!mergedArray.includes(item)) {
+      // Check if the item is not already in the merged array
+      mergedArray.push(item); // Add the item to the merged array
+    }
+  }
+  return mergedArray;
+}
+
+const array1 = [1, 2, 3];
+const array2 = [3, 4, 5];
+const mergedResult = mergeArrays(array1, array2);
+console.log(mergedResult); // Output: [1, 2, 3, 4, 5]
+
+// O(a * b)
