@@ -277,3 +277,27 @@ function moveZeros(nums) {
 const nums = [0, 1, 0, 3, 12];
 moveZeros(nums);
 console.log(nums); // Outputs [1, 3, 12, 0, 0]
+
+
+// Contains Duplicate
+
+function containsDuplicate(nums) {
+  const uniqueSet = new Set();
+
+  for (const num of nums) {
+    if (uniqueSet.has(num)) {
+      return true; // Found a duplicate
+    }
+
+    uniqueSet.add(num);
+  }
+
+  return false; // No duplicates found
+}
+
+// Example usage:
+const nums1 = [1, 2, 3, 1];
+const nums2 = [1, 2, 3, 4];
+
+console.log(containsDuplicate(nums1)); // Outputs true (contains duplicates)
+console.log(containsDuplicate(nums2)); // Outputs false (no duplicates)
