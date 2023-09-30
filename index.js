@@ -104,7 +104,7 @@ const newArray = new MyArray();
 // console.log(newArray);
 
 // In interviews treat string questions as arrays
-// Strings are just an array of characters
+// Strings are just an array of characters0 ..
 
 // Reverse a string
 // 'Hi my name is Adam' should be
@@ -190,19 +190,42 @@ console.log(mergeArrays([1, 2, 3, 4], [5, 6, 7, 8]))
 
 // Simpler solution
 
-// function mergeArrays(arr1, arr2) {
-//   const mergedArray = [...arr1]; // Create a copy of arr1
-//   for (const item of arr2) {
-//     if (!mergedArray.includes(item)) {
-//       // Check if the item is not already in the merged array
-//       mergedArray.push(item); // Add the item to the merged array
-//     }
-//   }
-//   return mergedArray;
-// }
+function mergeArrays(arr1, arr2) {
+  const mergedArray = [...arr1]; // Create a copy of arr1
+  for (const item of arr2) {
+    if (!mergedArray.includes(item)) {
+      // Check if the item is not already in the merged array
+      mergedArray.push(item); // Add the item to the merged array
+    }
+  }
+  return mergedArray;
+}
 
-// const array1 = [1, 2, 3];
-// const array2 = [3, 4, 5];
-// const mergedResult = mergeArrays(array1, array2);
-// console.log(mergedResult); // Output: [1, 2, 3, 4, 5]
+const array1 = [1, 2, 3];
+const array2 = [3, 4, 5];
+const mergedResult = mergeArrays(array1, array2);
+console.log(mergedResult); // Output: [1, 2, 3, 4, 5]
 
+
+// Two Sum
+
+function twoSum(nums, target) {
+  const numIndices = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const currentNum = nums[i];
+    const complement = target - currentNum;
+
+    if (numIndices.hasOwnProperty(complement)) {
+      return [numIndices[complement], i];
+    }
+
+    numIndices[currentNum] = i;
+  }
+
+  return null; // Return null if no solution is found
+}
+
+const nums = [2, 7, 11, 15];
+const target = 9;
+const result = twoSum(nums, target); // Returns [0, 1] because nums[0] + nums[1] == 9
