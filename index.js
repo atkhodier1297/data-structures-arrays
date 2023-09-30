@@ -301,3 +301,39 @@ const nums2 = [1, 2, 3, 4];
 
 console.log(containsDuplicate(nums1)); // Outputs true (contains duplicates)
 console.log(containsDuplicate(nums2)); // Outputs false (no duplicates)
+
+
+// Rotate Array Left Counter-Clockwise
+
+function rotateLeft(arr, k) {
+  const n = arr.length;
+  k = k % n; // Handle cases where k is larger than the array length
+
+  const rotatedPart = arr.slice(0, k); // Get the first k elements
+  const remainingPart = arr.slice(k); // Get the rest of the elements
+
+  return remainingPart.concat(rotatedPart);
+}
+
+// Example usage:
+const originalArray = [1, 2, 3, 4, 5];
+const rotatedArray = rotateLeft(originalArray, 2); // Rotates the array to the left by 2 positions
+console.log(rotatedArray); // Outputs [3, 4, 5, 1, 2]
+
+
+// Rotate Array Right Clockwise
+
+function rotateRight(arr, k) {
+  const n = arr.length;
+  k = k % n; // Handle cases where k is larger than the array length
+
+  const rotatedPart = arr.slice(n - k); // Get the last k elements
+  const remainingPart = arr.slice(0, n - k); // Get the rest of the elements
+
+  return rotatedPart.concat(remainingPart);
+}
+
+// Example usage:
+const originalArray = [1, 2, 3, 4, 5];
+const rotatedArray = rotateRight(originalArray, 2); // Rotates the array to the right by 2 positions
+console.log(rotatedArray); // Outputs [4, 5, 1, 2, 3]
