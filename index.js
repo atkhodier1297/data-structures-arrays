@@ -251,3 +251,29 @@ function maxSubarray(nums) {
 const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 const result = maxSubarray(nums); // Returns 6 (the maximum subarray is [4, -1, 2, 1])
 
+
+// Move Zeros
+
+function moveZeros(nums) {
+  let nonZeroPointer = 0; // Points to the position where the next non-zero element should be placed
+
+  // Iterate through the array
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      // If the current element is non-zero, move it to the nonZeroPointer position
+      nums[nonZeroPointer] = nums[i];
+
+      // If nonZeroPointer is not equal to the current position, set the current position to zero
+      if (nonZeroPointer !== i) {
+        nums[i] = 0;
+      }
+
+      nonZeroPointer++; // Increment nonZeroPointer
+    }
+  }
+}
+
+// Example usage:
+const nums = [0, 1, 0, 3, 12];
+moveZeros(nums);
+console.log(nums); // Outputs [1, 3, 12, 0, 0]
