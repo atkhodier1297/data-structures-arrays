@@ -229,3 +229,25 @@ function twoSum(nums, target) {
 const nums = [2, 7, 11, 15];
 const target = 9;
 const result = twoSum(nums, target); // Returns [0, 1] because nums[0] + nums[1] == 9
+
+// Maximum Subarray
+
+function maxSubarray(nums) {
+  let maxSum = nums[0]; // Initialize the maximum sum with the first element of the array
+  let currentSum = nums[0]; // Initialize the current sum with the first element
+
+  for (let i = 1; i < nums.length; i++) {
+    // Calculate the maximum between the current number and the current number + currentSum
+    currentSum = Math.max(nums[i], currentSum + nums[i]);
+
+    // Update maxSum if the currentSum becomes greater
+    maxSum = Math.max(maxSum, currentSum);
+  }
+
+  return maxSum;
+}
+
+// Example usage:
+const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+const result = maxSubarray(nums); // Returns 6 (the maximum subarray is [4, -1, 2, 1])
+
